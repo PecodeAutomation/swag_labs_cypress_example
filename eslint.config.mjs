@@ -1,9 +1,11 @@
 import js from '@eslint/js';
+import ts from 'typescript-eslint'
 import globals from 'globals';
 import cypressPlugin from 'eslint-plugin-cypress';
 
 export default [
   js.configs.recommended,
+  ...ts.configs.recommended,
   {
     plugins: {
       cypress: cypressPlugin,

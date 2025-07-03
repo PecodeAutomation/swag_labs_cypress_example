@@ -8,7 +8,7 @@ export default defineConfig({
     env: {
       environment: 'dev',
     },
-    setupNodeEvents(on, config) {
+    setupNodeEvents(_on, _config) {
       
     },
   },

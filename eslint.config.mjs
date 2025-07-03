@@ -1,19 +1,15 @@
 import js from '@eslint/js';
-import ts from 'typescript-eslint'
 import globals from 'globals';
-import cypressPlugin from 'eslint-plugin-cypress';
+import cypress from 'eslint-plugin-cypress';
+import typescriptParser from '@typescript-eslint/parser';
+import typescriptPlugin from '@typescript-eslint/eslint-plugin';
 
 export default [
   js.configs.recommended,
-  ...ts.configs.recommended,
   {
-    plugins: {
-      cypress: cypressPlugin,
-    },
-  },
-  {
-    files: ['**/*.{js,mjs,cjs}'],
+    files: ['**/*.ts'],
     languageOptions: {
+      parser: typescriptParser,
       globals: {
         ...globals.browser,
         ...globals.node,
@@ -23,46 +19,32 @@ export default [
         expect: 'readonly',
         assert: 'readonly',
       },
-      parserOptions: {
-        'ecmaVersion': 'latest',
-        'sourceType': 'module',
-      },
     },
-  },
-
-  {
+    plugins: {
+      '@typescript-eslint': typescriptPlugin,
+      cypress,
+    },
     rules: {
-      // General rules
-      'linebreak-style': 'off',
-      'no-unused-vars': 'warn',
-      'no-console': 'warn',
-
+      // Base rules
       'indent': ['error', 2],
       'quotes': ['error', 'single'],
       'semi': ['error', 'always'],
-      'comma-dangle': ['error', 'always-multiline'],
-      'max-len': ['error', { 'code': 200, 'ignoreUrls': true }],
-      'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
-
-      'space-before-function-paren': ['error', 'never'],
-      'arrow-parens': ['error', 'always'],
-    },
-  },
-  {
-    files: [
-      'cypress/**/*.js',
-      '!cypress/config/*.js',
-    ],
-    plugins: {
-      cypress: cypressPlugin,
-    },
-    rules: {
-      // Cypress-specific rules
-      'no-unused-expressions': 'off',
+      'no-unused-vars': 'off',
+      
+      // TypeScript rules
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { 
+          'argsIgnorePattern': '^_',
+          'varsIgnorePattern': '^_',
+          'caughtErrorsIgnorePattern': '^_'
+        }
+      ],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      
+      // Cypress rules
       'cypress/no-unnecessary-waiting': 'warn',
       'cypress/no-assigning-return-values': 'error',
-      'cypress/no-force': 'off',
-      'cypress/assertion-before-screenshot': 'warn',
     },
   },
 ];

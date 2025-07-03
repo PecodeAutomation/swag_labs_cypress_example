@@ -16,7 +16,7 @@ class LoginPage {
   action = {
     login: (username = Cypress.env('standardUserName'), password = Cypress.env('password')) => {
       this.get.userNameInput().clear().type(username);
-      // this.get.passwordInput().clear().type(password, { sensitive: true });
+      this.get.passwordInput().clear().type(password);
       this.get.loginButton().click();
     },
   };

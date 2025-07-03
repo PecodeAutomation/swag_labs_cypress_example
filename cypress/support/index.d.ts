@@ -1,4 +1,4 @@
-import type {} from 'cypress'
+import type {Loggable} from 'cypress';
 
 declare global {
   namespace Cypress {

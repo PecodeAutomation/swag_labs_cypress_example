@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: lts/*
       - run: npm ci
-      - run: npx eslint . --ext .js,.mjs,.cjs --max-warnings=0
+      - run: npx eslint . --ext .js,.mjs,.cjs,.ts --max-warnings=0
 
   cypress-tests:
     name: Cypress Tests

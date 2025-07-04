@@ -1,0 +1,33 @@
+export abstract class BasePage {
+  protected path: string = '/';
+
+  public visit(): void {
+    cy.visit(this.path);
+  }
+
+  public getElement(selector: string): Cypress.Chainable {
+    return cy.get(selector);
+  }
+
+  public clickElement(selector: string): void {
+    this.getElement(selector).click();
+  }
+
+  public typeText(selector: string, text: string): void {
+    this.getElement(selector).type(text);
+  }
+
+  public shouldBeVisible(selector: string): void {
+    this.getElement(selector).should('be.visible');
+  }
+
+  public verifyPath(options: { exact?: boolean } = { exact: false }): void {
+    if (options.exact) {
+      cy.url().should('eq', Cypress.config('baseUrl') + this.path);
+    } else {
+      cy.url().should('include', this.path);
+    }
+  }
+
+    public abstract validatePage(): void;
+}

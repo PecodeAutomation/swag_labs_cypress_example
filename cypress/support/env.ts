@@ -1,4 +1,7 @@
 export const getEnvironment = () => {
   const env = Cypress.env();
-  return env[env.environment];
+  return {
+    ...env,
+    ...env.dev
+  };
 };

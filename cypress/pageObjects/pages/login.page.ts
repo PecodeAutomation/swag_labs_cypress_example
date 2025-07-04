@@ -1,24 +1,37 @@
-class LoginPage {
-  locatorOf = {
-    logo: '.login_logo',
-    userNameInput: 'input#user-name',
-    passwordInput: 'input#password',
-    loginButton: '#login-button',
-  };
+import { BasePage } from './base.page';
 
-  get = {
-    logo: () => cy.get(this.locatorOf.logo),
-    userNameInput: () => cy.get(this.locatorOf.userNameInput),
-    passwordInput: () => cy.get(this.locatorOf.passwordInput),
-    loginButton: () => cy.get(this.locatorOf.loginButton),
-  };
+export class LoginPage extends BasePage {
+  private usernameInput = 'input#user-name';
+  private passwordInput = 'input#password';
+  private loginButton = '#login-button';
+  private errorMessage = '[data-test="error"]';
 
-  action = {
-    login: (username = Cypress.env('standardUserName'), password = Cypress.env('password')) => {
-      this.get.userNameInput().clear().type(username);
-      this.get.passwordInput().clear().type(password);
-      this.get.loginButton().click();
-    },
-  };
+  constructor() {
+    super();
+    this.path = '/';
+  }
+
+  public validatePage(): void {
+    this.shouldBeVisible(this.usernameInput);
+    this.shouldBeVisible(this.passwordInput);
+    this.shouldBeVisible(this.loginButton);
+  }
+
+  public verifyErrorMessage(message: string): void {
+    this.getElement(this.errorMessage)
+      .should('be.visible')
+      .and('contain.text', message);
+  }
+
+  public typeUsername(username: string): void {
+    this.typeText(this.usernameInput, username);
+  }
+
+  public typePassword(password: string): void {
+    this.typeText(this.passwordInput, password);
+  }
+
+  public clickLoginButton(): void {
+    this.clickElement(this.loginButton);
+  }
 }
-export const loginPage = new LoginPage();

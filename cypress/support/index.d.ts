@@ -1,6 +1,7 @@
 import { Application } from '../support/application';
 import type { Loggable } from 'cypress/types/net-stubbing';
 import { LoginPage } from '../pageObjects/pages/login.page';
+import { AllItemsPage } from '../pageObjects/pages/allItems.page';
 
 declare global {
   namespace Cypress {
@@ -14,6 +15,7 @@ declare global {
       app(): Chainable<Application>;
       visitLoginPage(): void;
       loginPage(): Chainable<LoginPage>;
+      allItemsPage(): Chainable<AllItemsPage>;
       
       /**
        * Custom login shortcut command

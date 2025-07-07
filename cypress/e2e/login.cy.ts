@@ -24,23 +24,25 @@ describe('Login Tests', function() {
   });
 
   it('Verify user login with empty username and password', () => {
-    cy.app().then(app => { app.loginPage.clickLoginButton(); });
-    cy.app().then(app => { app.loginPage.verifyErrorMessage(ERROR_MESSAGE.userNameIsRequired); });
+    cy.app().then(app => { 
+      app.loginPage.clickLoginButton();
+      app.loginPage.verifyErrorMessage(ERROR_MESSAGE.userNameIsRequired);
+    });
   });
 
   it('Verify user login with empty username and valid password', () => {
     cy.app().then(app => { 
       app.loginPage.typePassword(environment.password); 
       app.loginPage.clickLoginButton();
+      app.loginPage.verifyErrorMessage(ERROR_MESSAGE.userNameIsRequired);
     });
-    cy.app().then(app => { app.loginPage.verifyErrorMessage(ERROR_MESSAGE.userNameIsRequired); });
   });
 
   it('Verify user login with empty password and valid username', () => {
     cy.app().then(app => {
       app.loginPage.typeUsername(environment.standardUserName);
       app.loginPage.clickLoginButton();
+      app.loginPage.verifyErrorMessage(ERROR_MESSAGE.passwordIsRequired);
     });
-    cy.app().then(app => { app.loginPage.verifyErrorMessage(ERROR_MESSAGE.passwordIsRequired); });
   });
 });

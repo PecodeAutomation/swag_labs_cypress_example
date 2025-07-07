@@ -1,13 +1,12 @@
 import { BasePage } from '../pages/base.page';
 
 export class HeaderComponent extends BasePage {
-  burgerMenuButton = '#react-burger-menu-btn';
-  logo = '.app_logo';
-  shoppingCartButton = '#shopping_cart_container';
+  private burgerMenuButton = '#react-burger-menu-btn';
+  private logo = '.app_logo';
+  private shoppingCartButton = '#shopping_cart_container';
 
   constructor() {
     super();
-    this.path = Cypress.env('dev').base_page;
   }
 
   public validatePage(): void {

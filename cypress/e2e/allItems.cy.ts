@@ -5,7 +5,6 @@ describe('All Items tests', function() {
   const environment = getEnvironment();
 
   beforeEach(() => {
-    cy.app().visitLoginPage();
     cy.app().login( environment.standardUserName, environment.password );
   });
 

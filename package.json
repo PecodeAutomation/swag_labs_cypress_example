@@ -4,7 +4,7 @@
   "description": "",
   "main": "cypress.config.js",
   "scripts": {
-    "test:chrome": "cypress run --browser chrome --env environment=dev",
+    "test:chrome": "cypress run --browser chrome --headless --env environment=dev",
     "test:debug": "cypress open --browser chrome --env environment=dev"
   },
   "keywords": [],

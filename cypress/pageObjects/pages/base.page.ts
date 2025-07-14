@@ -29,5 +29,19 @@ export abstract class BasePage {
     }
   }
 
+  public verifyTextContains(selector: string, text: string): void {
+    this.getElement(selector).should('contain.text', text);
+  }
+
+  public selectOption(selector: string, option: string | number): void {
+    const element = this.getElement(selector);
+    
+    if (typeof option === 'number') {
+      element.select(option);
+    } else {
+      element.select(option);
+    }
+  }
+
     public abstract validatePage(): void;
 }

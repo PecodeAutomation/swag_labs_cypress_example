@@ -4,7 +4,7 @@
   "description": "",
   "main": "cypress.config.js",
   "scripts": {
-    "test:chrome": "cypress run --browser chrome --env environment=dev",
+    "test:chrome": "cypress run --browser chrome --headless --env environment=dev",
     "test:debug": "cypress open --browser chrome --env environment=dev"
   },
   "keywords": [],
@@ -13,6 +13,7 @@
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^6.0.4",
     "@eslint/js": "^9.30.1",
+    "@faker-js/faker": "^9.9.0",
     "@types/cypress": "^1.1.6",
     "@types/jquery": "^3.5.32",
     "@types/node": "^24.0.10",

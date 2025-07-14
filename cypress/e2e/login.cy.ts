@@ -13,14 +13,38 @@ describe('Login Tests', function() {
     cy.app().then(app => { app.headerComponent.verifyPath(); });
   });
 
-  it('Verify standard user login with invalid password', () => {
-    cy.app().login( environment.standardUserName, environment.invalid_password );
-    cy.app().then(app => { app.loginPage.verifyErrorMessage(ERROR_MESSAGE.usernameAndPasswordDoNotMatchAnyUser); });
-  });
+  const negativeTests = [
+    {
+      title: 'Verify standard user login with invalid password',
+      username: environment.standardUserName,
+      password: environment.invalid_password,
+      expectedError: ERROR_MESSAGE.usernameAndPasswordDoNotMatchAnyUser,
+    },
+    {
+      title: 'Verify standard user login with invalid username',
+      username: environment.invalid_username,
+      password: environment.password,
+      expectedError: ERROR_MESSAGE.usernameAndPasswordDoNotMatchAnyUser,
+    },
+    {
+      title: 'Verify standard user login with locked user',
+      username: environment.lockedUserName,
+      password: environment.password,
+      expectedError: ERROR_MESSAGE.thisUserLockedOut,
+    },
+    {
+      title: 'Verify login with locked user',
+      username: environment.lockedUserName,
+      password: environment.password,
+      expectedError: ERROR_MESSAGE.thisUserLockedOut,
+    },
+  ];
 
-  it('Verify standard user login with invalid username', () => {
-    cy.app().login( environment.invalid_username, environment.password );
-    cy.app().then(app => { app.loginPage.verifyErrorMessage(ERROR_MESSAGE.usernameAndPasswordDoNotMatchAnyUser); });
+  negativeTests.forEach(({ title, username, password, expectedError }) => {
+    it(title, () => {
+      cy.app().login(username, password);
+      cy.app().then(app => app.loginPage.verifyErrorMessage(expectedError));
+    });
   });
 
   it('Verify user login with empty username and password', () => {

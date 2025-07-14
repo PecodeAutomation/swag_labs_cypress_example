@@ -39,7 +39,7 @@ describe('All Items tests', function() {
     });
   });
 
-  it('Verify that after removing a product, the "Remove" button changes to "Add to car"', () => {
+  it('Verify that after removing a product, the "Remove" button changes to "Add to cart"', () => {
     cy.app().then(app => { 
       app.allItemsPage.clickAddToCartButton(); 
       app.allItemsPage.clickRemoveButton(); 

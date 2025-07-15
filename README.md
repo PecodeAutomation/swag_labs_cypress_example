@@ -16,9 +16,7 @@ cd [project-folder]
 npm install
 ```
 ### 4.Configure Credentials & Environment
-```bash
 Create a cypress.env.json file in the root folder with the following structure:
-
 ```json
 {
   "standardUserName": "",

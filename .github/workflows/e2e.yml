@@ -31,3 +31,11 @@ jobs:
           node-version: lts/*
       - run: npm ci
       - run: npm run test:chrome
+        env:
+          CYPRESS_STANDARD_USER_NAME: ${{ secrets.STANDARD_USER_NAME }}
+          CYPRESS_LOCKED_USER_NAME: ${{ secrets.LOCKED_USER_NAME }}
+          CYPRESS_PASSWORD: ${{ secrets.PASSWORD }}
+          CYPRESS_INVALID_PASSWORD: ${{ secrets.INVALID_PASSWORD }}
+          CYPRESS_INVALID_USERNAME: ${{ secrets.INVALID_USERNAME }}
+          CYPRESS_DEV_URL: ${{ secrets.DEV_URL }}
+          CYPRESS_BASE_PAGE: ${{ secrets.BASE_PAGE }}

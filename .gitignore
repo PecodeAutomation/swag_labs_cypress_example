@@ -3,4 +3,4 @@ cypress/downloads/
 cypress/screenshots/
 cypress/videos/
 .eslintcache
-cypress.env.json
+cypress.env.json 

@@ -9,7 +9,7 @@ export class YourCartPage extends BasePage {
   private removeButton = '[id^="remove"]';
   private continueShoppingButton = '#continue-shopping';
 
-  constructor(private app: Application) {
+  constructor(public readonly app: Application) {
     super();
     this.path = `${Cypress.env('dev').url}cart.html`;
   }

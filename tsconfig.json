@@ -1,14 +1,20 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["es5", "dom"],
-    "types": ["cypress"],
+    "lib": ["es5", "dom", "es2015"],
+    "types": ["cypress", "node"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "outDir": "./dist"
+    "baseUrl": "./",
+    "paths": {
+      "@support/*": ["./cypress/support/*"],
+      "@pageObjects/*": ["./cypress/pageObjects/*"],
+      "@data/*": ["./cypress/data/*"]
+    }
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["cypress/**/*.ts", "index.d.ts"],
+  "exclude": ["node_modules"]
 }

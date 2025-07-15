@@ -12,11 +12,9 @@ Cypress.Commands.add('visitLoginPage', () => {
   });
 });
 
-Cypress.Commands.add('login', (username: string, password: string) => {
-  return cy.app().then(app => {
-    app.loginPage.visit();
-    app.loginPage.typeUsername(username);
-    app.loginPage.typePassword(password);
-    app.loginPage.clickLoginButton();
-  });
+Cypress.Commands.add('login', (username, password) => {
+  const app = new Application();
+  app.loginPage.typeUsername(username || Cypress.env('standardUserName'));
+  app.loginPage.typePassword(password || Cypress.env('password'));
+  app.loginPage.clickLoginButton();
 });

@@ -23,12 +23,12 @@ export class LoginPage extends BasePage {
       .and('contain.text', message);
   }
 
-  public typeUsername(username: string): void {
-    this.typeText(this.usernameInput, username);
+  public typeUsername(username: string = Cypress.env('username')): void {
+    cy.get(this.usernameInput).should('be.visible').clear().type(username);
   }
 
-  public typePassword(password: string): void {
-    this.typeText(this.passwordInput, password);
+  public typePassword(password: string = Cypress.env('password')): void {
+    cy.get(this.passwordInput).should('be.visible').clear().type(password);
   }
 
   public clickLoginButton(): void {

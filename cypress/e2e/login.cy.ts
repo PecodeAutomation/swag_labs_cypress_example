@@ -9,8 +9,11 @@ describe('Login Tests', function() {
   });
 
   it('Verify standard user login with valid credentials', () => {
-    cy.app().login( environment.standardUserName, environment.password );
-    cy.app().then(app => { app.headerComponent.verifyPath(); });
+    cy.login(
+      Cypress.env('standardUserName'),
+      Cypress.env('password')
+    );
+    cy.app().then(app => app.headerComponent.verifyPath());
   });
 
   const negativeTests = [

@@ -11,18 +11,32 @@ git clone [repository-url]
 ```bash
 cd [project-folder]
 ```
-### 3. Install dependencies
+### 3. Install dependencies:
 ```bash
 npm install
 ```
-### 4. Run the tests
+### 4. Create a cypress.env.json file in the root folder with the following structure:
+```json
+{
+  "standardUserName": "",
+  "lockedUserName": "",
+  "password": "",
+  "invalid_password": "",
+  "invalid_username": "",
+  "dev": {
+    "url": "",
+    "base_page": ""
+  }
+}
+```
+### 5. Run the tests
 ```bash
 npm run test:chrome
 ```
 > **Note:** Passing `:headless` will force the browser to be hidden.
 To see more flags to run automation with, check the official [Cypress CLI](https://docs.cypress.io/guides/guides/command-line.html#cypress-run) documentation.
 
-### 5. Open the Cypress test editor
+### 6. Open the Cypress test editor
 ```bash
 npm run test:debug
 ```

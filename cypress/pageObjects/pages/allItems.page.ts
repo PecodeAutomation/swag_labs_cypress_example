@@ -1,6 +1,7 @@
 import { BasePage } from './base.page';
 import { TITLES } from '../../data/constants';
-import { Application } from '../../support/app';
+import { FooterComponent } from '../components/footer.component';
+import { HeaderComponent } from '../components/header.compoent';
 
 export class AllItemsPage extends BasePage {
   private poductsTitle = '[data-test="title"]';
@@ -10,15 +11,17 @@ export class AllItemsPage extends BasePage {
   private addToCartButton = '.btn_inventory';
   private removeButton = '.btn_inventory';
 
-  constructor(private app: Application) {
-    super();
-    this.path = Cypress.env('dev').base_page;
+  constructor(
+    private footerComponent: FooterComponent,
+    private headerComponent: HeaderComponent
+  ) {
+    super('/inventory.html');
   }
 
   public validatePage(): void {
     this.verifyTextContains(this.poductsTitle, TITLES.products);
     this.shouldBeVisible(this.productSortContainer);
-    this.app.footerComponent.validatePage();
+    this.footerComponent.validatePage();
   }
 
   public sortItems(sortItem: number): void {

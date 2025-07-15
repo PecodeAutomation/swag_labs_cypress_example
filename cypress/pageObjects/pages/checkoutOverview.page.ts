@@ -7,8 +7,7 @@ export class CheckoutOverviewPage extends BasePage {
   private finishButton = '#finish';
 
   constructor(private app: Application) {
-    super();
-    this.path = `${Cypress.env('dev').url}checkout-step-two.html`;
+    super('/checkout-step-two.html');
   }
 
   public validatePage(): void {

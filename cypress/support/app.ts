@@ -8,7 +8,6 @@ import { CheckoutCompletePage } from '../pageObjects/pages/checkoutComplete.page
 import { FooterComponent } from '../pageObjects/components/footer.component';
 
 export class Application {
-  public allItemsPage: AllItemsPage;
   public loginPage: LoginPage;
   public headerComponent: HeaderComponent;
   public yourCartPage: YourCartPage;
@@ -16,9 +15,9 @@ export class Application {
   public checkoutOverviewPage: CheckoutOverviewPage;
   public checkoutCompletePage: CheckoutCompletePage;
   public footerComponent: FooterComponent;
+  public allItemsPage: AllItemsPage;
 
   constructor() {
-    this.allItemsPage = new AllItemsPage(this);
     this.loginPage = new LoginPage();
     this.headerComponent = new HeaderComponent();
     this.yourCartPage = new YourCartPage(this);
@@ -26,6 +25,7 @@ export class Application {
     this.checkoutOverviewPage = new CheckoutOverviewPage(this);
     this.checkoutCompletePage = new CheckoutCompletePage(this);
     this.footerComponent = new FooterComponent();
+    this.allItemsPage = new AllItemsPage(this.footerComponent, this.headerComponent);
   }
 
   visitLoginPage(): this {

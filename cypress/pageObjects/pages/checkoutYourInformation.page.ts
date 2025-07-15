@@ -12,8 +12,7 @@ export class CheckoutYourInformationPage extends BasePage {
   private continueButton = '#continue';
 
   constructor(private app: Application) {
-    super();
-    this.path = `${Cypress.env('dev').url}checkout-step-one.html`;
+    super('/checkout-step-one.html');
   }
 
   public validatePage(): void {

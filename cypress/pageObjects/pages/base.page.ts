@@ -1,5 +1,9 @@
 export abstract class BasePage {
-  protected path: string = '/';
+  protected path: string;
+
+  constructor(path: string = '/') {
+    this.path = path;
+  }
 
   public visit(): void {
     cy.visit(this.path);

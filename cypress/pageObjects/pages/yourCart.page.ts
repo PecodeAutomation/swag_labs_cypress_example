@@ -10,8 +10,7 @@ export class YourCartPage extends BasePage {
   private continueShoppingButton = '#continue-shopping';
 
   constructor(private app: Application) {
-    super();
-    this.path = `${Cypress.env('dev').url}cart.html`;
+    super('/cart.html');
   }
 
   public validatePage(): void {

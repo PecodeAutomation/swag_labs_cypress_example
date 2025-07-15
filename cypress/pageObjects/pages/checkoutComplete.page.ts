@@ -8,8 +8,7 @@ export class CheckoutCompletePage extends BasePage {
   private completeText = '.complete-text';
 
   constructor(private app: Application) {
-    super();
-    this.path = `${Cypress.env('dev').url}checkout-complete.html`;
+    super('/checkout-complete.html');
   }
 
   public validatePage(): void {

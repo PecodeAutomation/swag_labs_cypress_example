@@ -6,6 +6,7 @@ import { CheckoutYourInformationPage } from '../pageObjects/pages/checkoutYourIn
 import { CheckoutOverviewPage } from '../pageObjects/pages/checkoutOverview.page';
 import { CheckoutCompletePage } from '../pageObjects/pages/checkoutComplete.page';
 import { FooterComponent } from '../pageObjects/components/footer.component';
+import { SidebarMenuComponent } from '@pageObjects/components/sidebarMenu.component';
 
 export class Application {
   public allItemsPage: AllItemsPage;
@@ -16,6 +17,7 @@ export class Application {
   public checkoutOverviewPage: CheckoutOverviewPage;
   public checkoutCompletePage: CheckoutCompletePage;
   public footerComponent: FooterComponent;
+  public sidebarMenuComponent: SidebarMenuComponent;
 
   constructor() {
     this.allItemsPage = new AllItemsPage(this);
@@ -26,6 +28,7 @@ export class Application {
     this.checkoutOverviewPage = new CheckoutOverviewPage(this);
     this.checkoutCompletePage = new CheckoutCompletePage(this);
     this.footerComponent = new FooterComponent();
+    this.sidebarMenuComponent = new SidebarMenuComponent(this);
   }
 
   visitLoginPage(): this {

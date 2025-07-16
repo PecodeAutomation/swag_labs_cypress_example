@@ -8,7 +8,7 @@ describe('Sidebar tests', function() {
     cy.app().login( environment.standardUserName, environment.password );
   });
 
-  it('Verify logout', () => {
+  it('Verify logout with sidebar logout button', () => {
     cy.app().then((app: Application) => {
       app.sidebarMenuComponent.clickOnTheLogoutButton();
       app.loginPage.validatePage();

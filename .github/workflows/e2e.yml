@@ -33,16 +33,14 @@ jobs:
       - name: Create cypress.env.json
         run: |
           echo '{
-            "dev": {
-              "url": "${{ secrets.DEV_URL }}",
-              "base_page": "${{ secrets.BASE_PAGE }}"
-            },
-            "users": {
-              "standard": "${{ secrets.STANDARD_USER_NAME }}",
-              "locked": "${{ secrets.LOCKED_USER_NAME }}",
+              "standardUserName": "${{ secrets.STANDARD_USER_NAME }}",
+              "lockedUserName": "${{ secrets.LOCKED_USER_NAME }}",
               "password": "${{ secrets.PASSWORD }}",
               "invalid_password": "${{ secrets.INVALID_PASSWORD }}",
-              "invalid_username": "${{ secrets.INVALID_USERNAME }}"
-            }
+              "invalid_username": "${{ secrets.INVALID_USERNAME }}",
+              "dev": {
+                "url": "${{ secrets.DEV_URL }}",
+                "base_page": "${{ secrets.BASE_PAGE }}"
+              },
           }' > cypress.env.json
       - run: npm run test:chrome

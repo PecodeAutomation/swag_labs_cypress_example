@@ -30,12 +30,17 @@ jobs:
         with:
           node-version: lts/*
       - run: npm ci
+      - name: Create cypress.env.json
+        run: |
+          echo '{
+              "standardUserName": "${{ secrets.STANDARD_USER_NAME }}",
+              "lockedUserName": "${{ secrets.LOCKED_USER_NAME }}",
+              "password": "${{ secrets.PASSWORD }}",
+              "invalid_password": "${{ secrets.INVALID_PASSWORD }}",
+              "invalid_username": "${{ secrets.INVALID_USERNAME }}",
+              "dev": {
+                "url": "${{ secrets.DEV_URL }}",
+                "base_page": "${{ secrets.BASE_PAGE }}"
+              }
+          }' > cypress.env.json
       - run: npm run test:chrome
-        env:
-          CYPRESS_STANDARD_USER_NAME: ${{ secrets.STANDARD_USER_NAME }}
-          CYPRESS_LOCKED_USER_NAME: ${{ secrets.LOCKED_USER_NAME }}
-          CYPRESS_PASSWORD: ${{ secrets.PASSWORD }}
-          CYPRESS_INVALID_PASSWORD: ${{ secrets.INVALID_PASSWORD }}
-          CYPRESS_INVALID_USERNAME: ${{ secrets.INVALID_USERNAME }}
-          CYPRESS_DEV_URL: ${{ secrets.DEV_URL }}
-          CYPRESS_BASE_PAGE: ${{ secrets.BASE_PAGE }}

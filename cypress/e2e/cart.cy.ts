@@ -29,8 +29,7 @@ describe('Cart tests', function() {
       app.allItemsPage.clickAddToCartButton(); 
       app.headerComponent.clickShoppingCartButton();
       app.yourCartPage.clickOnTheRemoveButton();
-      app.yourCartPage.verifyCartIsEmpty();
-      
+      app.yourCartPage.verifyCartIsEmpty();     
     });
   });
 

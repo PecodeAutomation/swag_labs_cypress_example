@@ -45,4 +45,4 @@ npm run test:debug
 ## Configuration
 Configuration options can be set in:
 * cypress.config.js - Main configuration file
-* .env - Environment variables (create from .env.example)
+* cypress.env.json - Environment variables (create from point 4)

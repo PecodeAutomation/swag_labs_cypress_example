@@ -1,6 +1,6 @@
 import { getEnvironment } from '../support/env';
 import { BUTTONS } from '../data/constants';
-import { Application } from '@support/app';
+import { Application } from '../support/app';
 
 describe('All Items tests', function() {
   const environment = getEnvironment();

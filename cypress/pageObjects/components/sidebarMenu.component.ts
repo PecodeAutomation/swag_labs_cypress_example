@@ -1,5 +1,5 @@
 import { BasePage } from '../pages/base.page';
-import { Application } from '@support/app';
+import { Application } from '../../support/app';
 
 export class SidebarMenuComponent extends BasePage {
   private closeButton = '.bm-cross-button';

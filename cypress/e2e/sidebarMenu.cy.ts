@@ -1,5 +1,5 @@
 import { getEnvironment } from '../support/env';
-import { Application } from '@support/app';
+import { Application } from '../support/app';
 
 describe('Sidebar tests', function() {
   const environment = getEnvironment();

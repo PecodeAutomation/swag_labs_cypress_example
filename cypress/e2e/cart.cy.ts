@@ -1,6 +1,6 @@
 import { getEnvironment } from '../support/env';
 import { ORDER_MESSAGES } from '../data/constants';
-import { Application } from '@support/app';
+import { Application } from '../support/app';
 
 describe('Cart tests', function() {
   const environment = getEnvironment();

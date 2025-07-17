@@ -1,20 +1,18 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["es5", "dom", "es2015"],
-    "types": ["cypress", "node"],
-    "strict": true,
-    "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "baseUrl": "./",
+    "types": ["cypress"],
     "paths": {
-      "@support/*": ["./cypress/support/*"],
-      "@pageObjects/*": ["./cypress/pageObjects/*"],
-      "@data/*": ["./cypress/data/*"]
+      "@support/*": ["./support/*"],
+      "@pageObjects/*": ["./pageObjects/*"]
     }
   },
-  "include": ["cypress/**/*.ts", "index.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "**/*.ts",
+    "node_modules/cypress/types/net-stubbing.d.ts"
+  ]
 }

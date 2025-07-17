@@ -1,6 +1,6 @@
 import { getEnvironment } from '../support/env';
 import {ERROR_MESSAGE} from '../data/constants';
-import { Application } from '@support/app';
+import { Application } from '../support/app';
 
 describe('Login Tests', function() {
   const environment = getEnvironment();

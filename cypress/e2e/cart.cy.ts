@@ -12,7 +12,7 @@ describe('Cart tests', function() {
   it('Verify that user can place an order', () => {
     cy.app().then((app: Application) => {
       app.yourCartPage.placeAnOrder();
-      app.checkoutCompletePage.verifyCheckoutCompleted(ORDER_MESSAGES.thankYouRorOrder, ORDER_MESSAGES.orderHasBeenDispatched);
+      app.checkoutCompletePage.verifyCheckoutCompleted(ORDER_MESSAGES.thankYouForOrder, ORDER_MESSAGES.orderHasBeenDispatched);
     });
   });
 

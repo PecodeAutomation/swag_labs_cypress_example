@@ -23,6 +23,6 @@ export const TITLES = {
 };
 
 export const ORDER_MESSAGES = {
-  thankYouRorOrder: 'Thank you for your order!',
+  thankYouForOrder: 'Thank you for your order!',
   orderHasBeenDispatched: 'Your order has been dispatched, and will arrive just as fast as the pony can get there!',
 };

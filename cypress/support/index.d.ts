@@ -1,7 +1,7 @@
-import { Application } from '@support/application';
+import { Application } from '../support/application';
 import type { Loggable } from 'cypress/types/net-stubbing';
-import { LoginPage } from '@pageObjects/pages/login.page';
-import { AllItemsPage } from '@pageObjects/pages/allItems.page';
+import { LoginPage } from '../pageObjects/pages/login.page';
+import { AllItemsPage } from '../pageObjects/pages/allItems.page';
 
 declare global {
   namespace Cypress {

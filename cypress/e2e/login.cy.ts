@@ -30,7 +30,7 @@ describe('Login Tests', function() {
       expectedError: ERROR_MESSAGE.usernameAndPasswordDoNotMatchAnyUser,
     },
     {
-      title: 'Verify standard user login with locked user',
+      title: 'Verify user login with locked user',
       username: environment.lockedUserName,
       password: environment.password,
       expectedError: ERROR_MESSAGE.thisUserLockedOut,

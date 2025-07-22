@@ -17,7 +17,7 @@ describe('Sidebar tests', function() {
 
   it('Verify that that all items are removed from the cart after clicking the "Reset App State" button', () => {
     cy.app().then((app: Application) => {
-      app.allItemsPage.clickAddToCartButton(); 
+      app.commonComponent.clickAddToCartButton(); 
       app.headerComponent.clickShoppingCartButton();
       app.sidebarMenuComponent.clickOnTheResetAppStateButton();
       app.yourCartPage.verifyCartIsEmpty();

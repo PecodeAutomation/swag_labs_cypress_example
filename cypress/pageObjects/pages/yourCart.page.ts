@@ -28,7 +28,7 @@ export class YourCartPage extends BasePage {
   }
 
   public placeAnOrder(): void {
-    this.app.allItemsPage.clickAddToCartButton(); 
+    this.app.commonComponent.clickAddToCartButton();
     this.app.headerComponent.clickShoppingCartButton();
     this.app.yourCartPage.clickOnTheCheckoutButton();
     this.app.checkoutYourInformationPage.typeCheckoutInformation();
@@ -42,5 +42,9 @@ export class YourCartPage extends BasePage {
 
   public clickOnTheRemoveButton(): void {
     this.clickElement(this.removeButton);
+  }
+
+  public verifyCartIsNotEmpty(): void {
+    this.getElement(this.cartItem).should('exist');
   }
 }

@@ -35,14 +35,14 @@ describe('All Items tests', function() {
 
   it('Verify that after adding a product to the cart, the "Add to cart" button changes to "Remove"', () => {
     cy.app().then((app: Application) => {
-      app.allItemsPage.clickAddToCartButton(); 
+      app.commonComponent.clickAddToCartButton(); 
       app.allItemsPage.verifyButtonName(BUTTONS.remove); 
     });
   });
 
   it('Verify that after removing a product, the "Remove" button changes to "Add to cart"', () => {
     cy.app().then((app: Application) => {
-      app.allItemsPage.clickAddToCartButton(); 
+      app.commonComponent.clickAddToCartButton(); 
       app.allItemsPage.clickRemoveButton(); 
       app.allItemsPage.verifyButtonName(BUTTONS.addToCart); 
     });

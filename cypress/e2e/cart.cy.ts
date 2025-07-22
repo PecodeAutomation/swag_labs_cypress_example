@@ -24,9 +24,9 @@ describe('Cart tests', function() {
     });
   });
 
-  it('Verify product removal from cart', () => {
+  it('Verify product removal from the cart', () => {
     cy.app().then((app: Application) => {
-      app.allItemsPage.clickAddToCartButton(); 
+      app.commonComponent.clickAddToCartButton();  
       app.headerComponent.clickShoppingCartButton();
       app.yourCartPage.clickOnTheRemoveButton();
       app.yourCartPage.verifyCartIsEmpty();     
@@ -38,6 +38,16 @@ describe('Cart tests', function() {
       app.headerComponent.clickShoppingCartButton();
       app.yourCartPage.clickOnTheContinueShoppingButton();
       app.allItemsPage.validatePage();   
+    });
+  });
+
+  it('Verify adding a product from the inventory item page', () => {
+    cy.app().then((app: Application) => {
+      app.allItemsPage.clickOnTheProductItemName(); 
+      app.inventoryItemPage.validatePage();
+      app.commonComponent.clickAddToCartButton();
+      app.headerComponent.clickShoppingCartButton();
+      app.yourCartPage.verifyCartIsNotEmpty();     
     });
   });
 });

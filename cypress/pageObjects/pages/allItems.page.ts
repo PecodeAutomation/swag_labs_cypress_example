@@ -77,10 +77,6 @@ export class AllItemsPage extends BasePage {
     });
   }
 
-  public clickAddToCartButton(): void {
-    cy.get(this.addToCartButton).eq(0).click();
-  }
-
   public verifyButtonName(buttonName: string): void {
     cy.get(this.addToCartButton)
       .eq(0)
@@ -90,5 +86,9 @@ export class AllItemsPage extends BasePage {
 
   public clickRemoveButton(): void {
     cy.get(this.removeButton).eq(0).click();
+  }
+
+  public clickOnTheProductItemName(): void {
+    cy.get(this.productItemName).eq(0).click();
   }
 }

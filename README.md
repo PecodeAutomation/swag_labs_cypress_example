@@ -21,6 +21,10 @@ Create a cypress.env.json file in the root folder with the following structure:
 {
   "standardUserName": "",
   "lockedUserName": "",
+  "problemUserName": "",
+  "performanceGlitchUserName": "",
+  "errorUserName": "",
+  "visualUserName": "",
   "password": "",
   "invalid_password": "",
   "invalid_username": "",

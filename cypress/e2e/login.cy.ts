@@ -9,14 +9,44 @@ describe('Login Tests', function() {
     cy.app().visitLoginPage();
   });
 
-  it('Verify standard user login with valid credentials', () => {
-    cy.app().login( environment.standardUserName, environment.password );
-    cy.app().then((app: Application) => {
-      app.headerComponent.verifyPath();
+  const positiveLoginTests = [
+    {
+      title: 'Verify standard user login with valid credentials',
+      username: environment.standardUserName,
+      password: environment.password,
+    },
+    {
+      title: 'Verify problem user login with valid credentials',
+      username: environment.problemUserName,
+      password: environment.password,
+    },
+    {
+      title: 'Verify performance glitch user login with valid credentials',
+      username: environment.performanceGlitchUserName,
+      password: environment.password,
+    },
+    {
+      title: 'Verify error user login with valid credentials',
+      username: environment.errorUserName,
+      password: environment.password,
+    },
+    {
+      title: 'Verify visual user login with valid credentials',
+      username: environment.visualUserName,
+      password: environment.password,
+    },
+  ];
+
+  positiveLoginTests.forEach(({ title, username, password }) => {
+    it(title, () => {
+      cy.app().login(username, password);
+      cy.app().then((app: Application) => {
+        app.headerComponent.verifyPath();
+      });
     });
   });
 
-  const negativeTests = [
+  const negativeLoginTests = [
     {
       title: 'Verify standard user login with invalid password',
       username: environment.standardUserName,
@@ -43,7 +73,7 @@ describe('Login Tests', function() {
     },
   ];
 
-  negativeTests.forEach(({ title, username, password, expectedError }) => {
+  negativeLoginTests.forEach(({ title, username, password, expectedError }) => {
     it(title, () => {
       cy.app().login(username, password);
       cy.app().then((app: Application) => {

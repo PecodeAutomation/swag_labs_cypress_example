@@ -35,6 +35,10 @@ jobs:
           echo '{
               "standardUserName": "${{ secrets.STANDARD_USER_NAME }}",
               "lockedUserName": "${{ secrets.LOCKED_USER_NAME }}",
+              "problemUserName": "${{ secrets.PROBLEM_USER_NAME }}",
+              "performanceGlitchUserName": "${{ secrets.PERFORMANCE_GLITCH_USER_NAME }}",
+              "errorUserName": "${{ secrets.ERROR_USER_NAME }}",
+              "visualUserName": "${{ secrets.VISUAL_USER_NAME }}",
               "password": "${{ secrets.PASSWORD }}",
               "invalid_password": "${{ secrets.INVALID_PASSWORD }}",
               "invalid_username": "${{ secrets.INVALID_USERNAME }}",

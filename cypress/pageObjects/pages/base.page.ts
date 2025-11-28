@@ -19,7 +19,7 @@ export abstract class BasePage {
 
   public shouldBeVisible(selector: string): void {
     this.getElement(selector).should('be.visible');
-  }
+  } 
 
   public verifyPath(options: { exact?: boolean } = { exact: false }): void {
     if (options.exact) {

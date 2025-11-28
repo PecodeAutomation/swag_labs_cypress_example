@@ -9,7 +9,7 @@ export abstract class BasePage {
     return cy.get(selector);
   }
 
-  public clickElement(selector: string): void {
+  public clickElement(selector: string): void { 
     this.getElement(selector).click();
   }
 

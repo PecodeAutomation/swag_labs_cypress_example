@@ -23,7 +23,7 @@ export abstract class BasePage {
 
   public verifyPath(options: { exact?: boolean } = { exact: false }): void {
     if (options.exact) {
-      cy.url().should('eq', Cypress.config('baseUrl') + this.path);
+      cy.url().should('eq', Cypress.config('baseUrl') + this.path); 
     } else {
       cy.url().should('include', this.path);
     }
